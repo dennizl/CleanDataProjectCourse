@@ -42,7 +42,7 @@ For more information, please visit: http://archive.ics.uci.edu/ml/datasets/Human
 
 
 ## How to reproduce the transformations
-The _tidyData.txt_ file is produced by the *run_analysis.R* code. To execute this code, run its **runAnalysis** function, which will perform all the other contained functions needed to produce the tidy dataset from the original UCI smartphone dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
+The _tidyData.txt_ file is produced by the **run_analysis.R** code. To execute this code, run its **runAnalysis** function, which will perform all the other contained functions needed to produce the tidy dataset from the original UCI smartphone dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
 
 `tidyData <- runAnalysis()`
 
