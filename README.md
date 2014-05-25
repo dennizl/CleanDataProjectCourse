@@ -36,8 +36,7 @@ This project contains the following files:
 
 ## Assumptions / Requirements
 
-For the code to function properly, it requires that the user have the _Human Activity Recognition Using Smartphones Data Set_ in the R working directory. This dataset can be obtained here:
-`[https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip]`
+For the code to function properly, it requires that the user have the _Human Activity Recognition Using Smartphones Data Set_ in the R working directory. This dataset can be obtained here: [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip]
 
 ## How to Use the Code (run_Analysis.R)
 To use this code, run the **runAnalysis** function, which will perform all the required functions needed to produce the tidy dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
