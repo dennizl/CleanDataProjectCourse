@@ -10,9 +10,26 @@ The _tidyData.txt_ file is comma seperated and contains a header with the column
 The original dataset, _Human Activity Recognition Using Smartphones_, is provided by the University of California - Irvine's Center for Machine Learning and Intelligent Systems. This dataset is described as follows:
 
 
-`The [datasets contain the output from] experiments [that] have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.` 
+```
+The [datasets contain the output from] experiments [that] have been carried
+out with a group of 30 volunteers within an age bracket of 19-48 years. Each
+person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,
+SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the 
+waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear
+acceleration and 3-axial angular velocity at a constant rate of 50Hz. The 
+experiments have been video-recorded to label the data manually. The obtained
+dataset has been randomly partitioned into two sets, where 70% of the volunteers
+was selected for generating the training data and 30% the test data.
 
-`The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.`
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying
+noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% 
+overlap (128 readings/window). The sensor acceleration signal, which has 
+gravitational and body motion components, was separated using a Butterworth 
+low-pass filter into body acceleration and gravity. The gravitational force is 
+assumed to have only low frequency components, therefore a filter with 0.3 Hz 
+cutoff frequency was used. From each window, a vector of features was obtained by 
+calculating variables from the time and frequency domain.
+```
 
 This dataset contains the following records:
 * Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
@@ -22,7 +39,7 @@ This dataset contains the following records:
 * An identifier of the subject who carried out the experiment.
 
 ## How to reproduce the transformations
-The _tidyData.txt_ file is produced by the *run_analysis.R* code. To execute this code, run its **runAnalysis** function, which will perform all the required functions needed to produce the tidy dataset from the original UCI smartphone dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
+The _tidyData.txt_ file is produced by the *run_analysis.R* code. To execute this code, run its **runAnalysis** function, which will perform all the other contained functions needed to produce the tidy dataset from the original UCI smartphone dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
 
 `tidyData <- runAnalysis()`
 
@@ -39,23 +56,23 @@ To transform the dataset into the specified tidy dataset, the code performs the 
 
 
 # Description of Variables
-The tidy dataset contains 68 variables with 180 observations (as well as a column header). Specifically, the dataset contains averages for 66 measurements collected for 6 activities performed by 30 subjects.
+The tidy dataset contains 68 variables with 180 observations (as well as a column header). Specifically, the dataset contains averages for 66 smartphone sensor measurements collected on 6 distinct activities performed by 30 unique subjects.
 
 ## Identifiers
 
 The identifier columns are:
 
 1. **subject** - this column contains an _integer_ that is unique to one of the 30 subjects
-2. **activity** - this column contains a _string_ that identifies the particular activity performed, which is one of the following 6 activities:
-  * WALKING
-  * WALKING_UPSTAIRS
-  * WALKING_DOWNSTAIRS
-  * SITTING
-  * STANDING
-  * LAYING
+2. **activity** - this column contains a _string_ that identifies 1 of the 6 ctivity performed by the subjects:
+  1. WALKING
+  2. WALKING_UPSTAIRS
+  3. WALKING_DOWNSTAIRS
+  4. SITTING
+  5. STANDING
+  6. LAYING
 
 ## Measurements
-The dataset contains 68 seperate measurements for each of the 6 activities performed by each of the 30 subjects. The dataset presents the **AVERAGES** of the mean and standard  deviation variables contained in the original dataset (please see the section above, *Background --> Original dataset*, for introductory information on the type of data collected as well as their source and relevant conditions).
+The dataset contains 66 seperate measurements for each of the 6 activities performed by each of the 30 subjects. The dataset presents the **AVERAGES** of the mean and standard  deviation variables contained in the original dataset (please see the section above, *Background --> Original dataset*, for introductory information on the type of data collected as well as their source and relevant conditions).
 
 **Note that each measurement was normalized and bounded within [-1,1].**
 
@@ -66,22 +83,28 @@ Each measurement contained in the tidy dataset is described in the column header
     * Examples: *timeBodyAccelerometerMean[X,Y,Z]* and *timeBodyGyroscopeJerkStdDev[X,Y,Z]* 
   * the frequency domain signals (*frequency*), which were derived by applying a Fast Fourier Transform (FFT) to some of the signals. 
     * Examples: *frequencyBodyAccelerometerMean[X,Y,Z]* and *frequencyBodyAccelerometerJerkMean[X,Y,Z]* 
+
 * **Body** or **Gravity** (all variables): Each measurement represents either the (*Body*) or gravity (*Gravity*)  acceleration signals into which the data has been seperated using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
   * Examples:  *timeBodyAccelerometerMagnitudeMean* vs. *timeGravityAccelerometerMagnitudeMean* 
-* *Accelerometer* or *Gyroscope* (all variables): Each variable represents sensor signal data collected from either the phone's *Accelerometer*, measuring linear acceleration, or the phone's *Gyroscope*, measuring 3-axial angular velocity.
-* *Mean* or *StdDev* (all variables): each variable reports on either the average (*Mean*) or the standard deviation (*StdDev*).
+
+* **Accelerometer** or **Gyroscope** (all variables): Each variable represents sensor signal data collected from either the phone's *Accelerometer*, measuring linear acceleration, or the phone's *Gyroscope*, measuring 3-axial angular velocity.
+
+* **Mean** or **StdDev** (all variables): each variable reports on either the average (*Mean*) or the standard deviation (*StdDev*).
   * Examples: *timeBodyGyroscopeMagnitudeMean* vs. *timeBodyGyroscopeMagnitudeStdDev*; and *timeBodyGyroscopeJerkMagnitudeMean* vs.  and *timeBodyGyroscopeJerkMagnitudeStdDev*
-* *X*, *Y*, *Z* (select variables): Some column labels conclude with either an *X, Y, or Z*, indicating the axis on which the measurement estimates the feature vector for the relevant pattern. 
+
+* **X**, **Y*, **Z** (select variables): Some column labels conclude with either an *X, Y, or Z*, indicating the axis on which the measurement estimates the feature vector for the relevant pattern. 
   * Examples: *frequencyBodyGyroscopeMeanX*, *frequencyBodyGyroscopeMeanY*, *frequencyBodyGyroscopeMeanZ*
-* *Jerk* (select variables): Some variables, which include *Jerk* in the column label, represent jerk signals obtained by the sensors derived from the body linear acceleration and angular velocity.
+
+* **Jerk** (select variables): Some variables, which include *Jerk* in the column label, represent jerk signals obtained by the sensors derived from the body linear acceleration and angular velocity.
   * Examples: *timeBodyGyroscopeJerkMeanZ*, timeBodyGyroscopeJerkStdDevX, *timeBodyGyroscopeJerkMagnitudeMean* 
-* *Magnitude* (select variables): Some variables, which include the term *Magnitude* in the column label, report the magnitude of the three-dimenisional signals obtained, calculated using the Euclidean norm.
+
+* **Magnitude** (select variables): Some variables, which include the term *Magnitude* in the column label, report the magnitude of the three-dimenisional signals obtained, calculated using the Euclidean norm.
   * Examples: *timeBodyAccelerometerMagnitudeStdDev*, *timeGravityAccelerometerMagnitudeMean*, and *frequencyBodyAccelerometerMagnitudeMean*
 
 ## Full List of Variables
 
-1. *subject* (integer: 0:30)
-2. *activity* (string/factor: 1. WALKING, 2. WALKING_UPSTAIRS, 3. WALKING_DOWNSTAIRS, 4. SITTING, 5. STANDING, 6. LAYING)
+1. **subject** (integer: 0:30)
+2. **activity** (string of 1 of 6 factors: 1. WALKING, 2. WALKING_UPSTAIRS, 3. WALKING_DOWNSTAIRS, 4. SITTING, 5. STANDING, 6. LAYING)
 3. timeBodyAccelerometerMeanX (numeric: between [-1,1])
 4. timeBodyAccelerometerMeanY (numeric: between [-1,1])
 5. timeBodyAccelerometerMeanZ (numeric: between [-1,1])
