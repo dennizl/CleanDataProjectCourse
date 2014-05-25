@@ -77,8 +77,6 @@ The identifier columns are:
 ## Measurements
 The dataset contains 66 seperate measurements for each of the 6 activities performed by each of the 30 subjects. The dataset presents the **AVERAGES** of the mean and standard  deviation variables contained in the original dataset (please see the section above, *Background --> Original dataset*, for introductory information on the type of data collected as well as their source and relevant conditions).
 
-*Note that each measurement was normalized and bounded within [-1,1].*
-
 Each measurement contained in the tidy dataset is described in the column header, using the following descriptors:
 
 * **time** or **frequency** (all variables): each measurement represents either:
@@ -103,6 +101,10 @@ Each measurement contained in the tidy dataset is described in the column header
 
 * **Magnitude** (select variables): Some variables, which include the term *Magnitude* in the column label, report the magnitude of the three-dimenisional signals obtained, calculated using the Euclidean norm.
   * Examples: *timeBodyAccelerometerMagnitudeStdDev*, *timeGravityAccelerometerMagnitudeMean*, and *frequencyBodyAccelerometerMagnitudeMean*
+
+
+Note that each measurement was normalized and bounded within [-1,1]. 
+  
 
 ## Full List of Variables
 
