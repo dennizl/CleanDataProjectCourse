@@ -83,3 +83,5 @@ The run_Analysis code contains the following functions:
 
 The code does not create/use any global variables. Internally, the dataframe variable names _combinedData_ represents the main dataframe which is ultimately converted into the tidy dataset in the dataframe variable named _tidyData_.
 
+# Tidy Data File
+The datafile produced by the code is contained in the project files -- see _tidyData.csv_ (or _tidyData.txt_). For more information on the specific variables, etc. contained within this file, please see the cookbook (_CookBook.md_).
