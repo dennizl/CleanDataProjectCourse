@@ -38,6 +38,9 @@ This dataset contains the following records:
 * Its activity label. 
 * An identifier of the subject who carried out the experiment.
 
+For more information, please visit: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+
 ## How to reproduce the transformations
 The _tidyData.txt_ file is produced by the *run_analysis.R* code. To execute this code, run its **runAnalysis** function, which will perform all the other contained functions needed to produce the tidy dataset from the original UCI smartphone dataset. Note that this function both saves the resulting dataset into a comma-seperated file named _tidyData.txt_ and returns the tidy dataset as a dataframe. The following is the recommended way of running the code once the **run_Analysis.R** file has been sourced in R:
 
@@ -74,7 +77,7 @@ The identifier columns are:
 ## Measurements
 The dataset contains 66 seperate measurements for each of the 6 activities performed by each of the 30 subjects. The dataset presents the **AVERAGES** of the mean and standard  deviation variables contained in the original dataset (please see the section above, *Background --> Original dataset*, for introductory information on the type of data collected as well as their source and relevant conditions).
 
-**Note that each measurement was normalized and bounded within [-1,1].**
+*Note that each measurement was normalized and bounded within [-1,1].*
 
 Each measurement contained in the tidy dataset is described in the column header, using the following descriptors:
 
